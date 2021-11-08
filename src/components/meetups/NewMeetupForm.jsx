@@ -1,8 +1,8 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import styles from './NewMeetupForm.module.css';
 import Card from '../ui/Card';
 
-function NewMeetupForm() {
+function NewMeetupForm({ onSubmit }) {
 	const titleRef = useRef();
 	const imageRef = useRef();
 	const addressRef = useRef();
@@ -16,7 +16,7 @@ function NewMeetupForm() {
 			address: addressRef.current.value,
 			description: descriptionRef.current.value,
 		};
-		console.log('OVDJE 12 ', meetup);
+		onSubmit(meetup);
 	}
 
 	return (
